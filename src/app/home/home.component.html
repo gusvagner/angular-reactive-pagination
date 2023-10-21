@@ -1,0 +1,18 @@
+<article>
+    <h1 *ngIf="currentPage$ | async as currentPage">
+        Current page: {{ currentPage }}
+    </h1>
+    <button (click)="prevPage()">Prev</button>
+    <button (click)="nextPage()">Next</button>
+
+    <table *ngIf="currentPageData$ | async as passengers">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>    
+        <tr *ngFor="let passenger of passengers">
+            <td>{{ passenger._id }}</td>
+            <td>{{ passenger.name }}</td>
+        </tr>    
+    </table>
+</article>
